@@ -1,0 +1,59 @@
+[
+  {
+  "name" : "library",
+  "location":{
+    "lat" : 33.77722251771012,
+    "lng" : -118.11428489516281
+  }
+},
+{
+  "name" : "usu",
+  "location":{
+    "lat" : 33.77722251771012,
+    "lng" : -118.11428489516281
+  }
+},
+
+  {
+  "name" : "University Library",
+  "location":{
+    "lat" : 33.77722251771012,
+    "lng" : -118.11428489516281
+  }
+},
+{
+  "name" : "Game center at the 1st floor of the University Student Union",
+  "location":{
+    "lat" : 1,
+    "lng" : 1
+  }
+},
+  {
+  "name" : "Earl Burns Miller Japanese Garden",
+  "location":{
+    "lat" : 33.78510271774986,
+    "lng" : -118.11957460135201
+  }
+},
+  {
+  "name" : "Coffee Bean at the 2nd floor of University Student Union",
+  "location":{
+    "lat" : 1,
+    "lng" : 1
+  }
+},
+  {
+  "name" : "Student Recreation & Wellness Center",
+  "location":{
+    "lat" : 1,
+    "lng" : 1
+  }
+},
+    {
+  "name" : "Kleefeld Contemporary Art Museum",
+  "location":{
+    "lat" : 1,
+    "lng" : 1
+  }
+}
+]
