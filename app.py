@@ -31,15 +31,13 @@ def get_directions():
     except requests.exceptions.HTTPError as err:
         return jsonify({'error': str(err)}), 500
     goog_map_response = requests.get(f'https://maps.googleapis.com/maps/api/directions/json?destination={end}&origin={start}&key={API_KEY}')
+    
+    if goog_map_response.status_code == 200:
+        directions_data = goog_map_response.json()
+        return jsonify(directions_data)
+    else:
+        return jsonify({'error': 'Failed to get directions'}), goog_map_response.status_code
 
-    # # Check if request was successful
-    # if goog_map_response.status_code != 200:
-    #     return f'Error: Your request was unsuccessful.'
-    # else:
-    #     directions_data = goog_map_response.json() #dictionary
-    #     steps = directions_data['routes'][0]['legs'][0]['steps']
-    #     directions = [step['html_directions'] for step in steps]
-    #     return jsonify(directions)
 
 
 
