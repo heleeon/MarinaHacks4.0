@@ -22,7 +22,7 @@ def get_directions():
 
     # # Testing
     # start_name = 'Go Beach'
-    # end_name = 'Beach'
+    # end_name = 'V Cafe'
 
     start_location = None
     for place in campus_places:
@@ -35,7 +35,7 @@ def get_directions():
             end_location = place['location']
             break
 
-    url = f"https://maps.googleapis.com/maps/api/directions/json?origin={start_location['lat']},{start_location['long']}&destination={end_location['lat']},{end_location['long']}&mode=walking&key={API_KEY}"
+    url = f"https://maps.googleapis.com/maps/api/directions/json?origin={start_location['lat']},{start_location['long']}&destination={end_location['lat']},{end_location['long']}&mode=driving&key={API_KEY}"
 
     # Make a request to Google MAPS API
     try:
