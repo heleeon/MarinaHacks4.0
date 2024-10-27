@@ -6,11 +6,32 @@
     "long" :-118.11428489516281
   }
 },
+  {
+  "name" : "Caffeine Lab",
+  "location":{
+    "lat" :33.77723668814858,
+    "long" :-118.11479171836712
+  }
+},
+  {
+  "name" : "Bookstore",
+  "location":{
+    "lat" :33.78017847605604,
+    "long" :-118.11414005505702
+  }
+},
 {
   "name" : "USU",
   "location":{
     "lat" :33.78110036856808,
     "long" :-118.11377573269851
+  }
+},
+    {
+  "name" : "Coffee Bean",
+  "location":{
+    "lat" :33.78116594607872,
+    "long" :-118.11300483210846
   }
 },
   {
@@ -21,17 +42,24 @@
   }
 },
   {
-  "name" : "Coffee Bean",
+  "name" : "Gym",
   "location":{
-    "lat" :1,
-    "long" :1
+    "lat" :33.78501347864235,
+    "long" :-118.10882785259946
   }
 },
   {
-  "name" : "Student Recreation & Wellness Center",
-  "location":{
-    "lat" :1,
-    "long" :1
+    "name": "Go Beach",
+    "location": {
+      "lat":33.78193619731233,
+      "long":-118.11484054578304
+    }
+  },
+    {
+    "name": "Beach",
+    "location": {
+      "lat":33.757572336929265,
+      "long":-118.11992247732638
+    }
   }
-}
 ]

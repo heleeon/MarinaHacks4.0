@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Navigation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #directions {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+
+<h1>Campus Navigation</h1>
+<label for="start">Start Location:</label>
+<input type="text" id="start" placeholder="Enter start location" required>
+<br>
+<label for="end">End Location:</label>
+<input type="text" id="end" placeholder="Enter end location" required>
+<br>
+<button id="get-directions">Get Directions</button>
+
+<div id="directions">
+    <h2>Directions:</h2>
+    <ul id="directions-list"></ul>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#get-directions').click(function() {
+        const start = $('#start').val();
+        const end = $('#end').val();
+
+        $.get(`/directions?start=${start}&end=${end}`, function(data) {
+            $('#directions-list').empty();
+            if (data.error) {
+                $('#directions-list').append(`<li>${data.error}</li>`);
+            } else {
+                data.forEach(function(step) {
+                    $('#directions-list').append(`<li>${step}</li>`);
+                });
+            }
+            $('#directions').show(); // Show the directions section
+        }).fail(function(jqXHR) {
+            $('#directions-list').empty();
+            $('#directions-list').append(`<li>Error: ${jqXHR.responseJSON.error}</li>`);
+            $('#directions').show();
+        });
+    });
+});
+</script>
+
+</body>
+</html>

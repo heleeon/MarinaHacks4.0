@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import requests, json
 app = Flask(__name__)
 #Opening file with campus places and corresponding lat & long
@@ -6,6 +6,11 @@ with open ("campus_places.json") as f:
         campus_places = json.load(f)
 
 API_KEY = 'AIzaSyCLCPDVcLovQkWDYM8BRNBV-VLA7vNwsxA'
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 @app.route('/campus_places', methods = ['GET'])
 def get_campus_places():
     return jsonify(campus_places)
@@ -16,8 +21,8 @@ def get_directions():
     end_name = request.args.get('end')
 
     # # Testing
-    # start_name = 'University Library'
-    # end_name = 'Japanese Garden'
+    # start_name = 'Go Beach'
+    # end_name = 'Beach'
 
     start_location = None
     for place in campus_places:
@@ -30,10 +35,9 @@ def get_directions():
             end_location = place['location']
             break
 
-    # Use Google Maps Directions API
     url = f"https://maps.googleapis.com/maps/api/directions/json?origin={start_location['lat']},{start_location['long']}&destination={end_location['lat']},{end_location['long']}&mode=walking&key={API_KEY}"
 
-    # Make a request to Google API
+    # Make a request to Google MAPS API
     try:
         goog_map_response = requests.get(url)
         goog_map_response.raise_for_status()  # Raise an error for bad responses
