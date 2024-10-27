@@ -2,36 +2,36 @@
   {
   "name" : "University Library",
   "location":{
-    "lat" : 33.77722251771012,
-    "long" : -118.11428489516281
+    "lat" :33.77722251771012,
+    "long" :-118.11428489516281
   }
 },
 {
   "name" : "USU",
   "location":{
-    "lat" : 1,
-    "long" : 1
+    "lat" :33.78110036856808,
+    "long" :-118.11377573269851
   }
 },
   {
-  "name" : "Earl Burns Miller Japanese Garden",
+  "name" : "Japanese Garden",
   "location":{
-    "lat" : 33.78510271774986,
-    "long" : -118.11957460135201
+    "lat" :33.78510271774986,
+    "long" :-118.11957460135201
   }
 },
   {
   "name" : "Coffee Bean",
   "location":{
-    "lat" : 1,
-    "long" : 1
+    "lat" :1,
+    "long" :1
   }
 },
   {
   "name" : "Student Recreation & Wellness Center",
   "location":{
-    "lat" : 1,
-    "long" : 1
+    "lat" :1,
+    "long" :1
   }
 }
 ]

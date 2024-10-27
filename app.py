@@ -12,27 +12,33 @@ def get_campus_places():
 
 @app.route('/directions', methods = ['GET'])
 def get_directions():
-    origin = request.args.get('start')
-    destination = request.args.get('end')
+    start_name = request.args.get('start')
+    end_name = request.args.get('end')
 
-    # # TEST: Use the provided lat/lng directly
-    # origin = "33.77720918736128,-118.11455548486778"
-    # destination = "33.78047261891716,-118.11397538002423"
-    # origin_lat, origin_long = origin.split(',')
-    # destination_lat, destination_long = destination.split(',')
-    # url = f"https://maps.googleapis.com/maps/api/directions/json?origin={origin_lat},{origin_long}&destination={destination_lat},{destination_long}&key={API_KEY}"
+    # # Testing
+    # start_name = 'University Library'
+    # end_name = 'Japanese Garden'
+
+    start_location = None
+    for place in campus_places:
+        if place['name'] == start_name:
+            start_location = place['location']
+            break
+    end_location = None
+    for place in campus_places:
+        if place['name'] == end_name:
+            end_location = place['location']
+            break
 
     # Use Google Maps Directions API
-    url = f"https://maps.googleapis.com/maps/api/directions/json?origin={origin}&destination={destination}&key={API_KEY}"
+    url = f"https://maps.googleapis.com/maps/api/directions/json?origin={start_location['lat']},{start_location['long']}&destination={end_location['lat']},{end_location['long']}&mode=walking&key={API_KEY}"
 
     # Make a request to Google API
     try:
         goog_map_response = requests.get(url)
-        # goog_map_response = requests.get('https://maps.googleapis.com/maps/api/directions/json', params=params)
         goog_map_response.raise_for_status()  # Raise an error for bad responses
     except requests.exceptions.HTTPError as err:
         return jsonify({'error': str(err)}), 500
-    goog_map_response = requests.get(f'https://maps.googleapis.com/maps/api/directions/json?destination={destination}&origin={origin}&mode=walking&key={API_KEY}')
 
     # Check if request went through
     if goog_map_response.status_code == 200:
